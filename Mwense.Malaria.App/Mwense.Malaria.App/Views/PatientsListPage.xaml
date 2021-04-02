@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Mwense.Malaria.App.ViewModels"
+             xmlns:model="clr-namespace:Mwense.Malaria.App.Models"
+             x:Class="Mwense.Malaria.App.Views.PatientsListPage"
+             Title="Patients Register">
+    <CollectionView x:Name="MyListView"
+            SelectionMode="Single"
+                    SelectionChanged="Handle_ClientSelected"
+            BackgroundColor="Transparent">
+        <!--Built in Cells
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <TextCell Text="{Binding .}" />
+        </DataTemplate>
+    </ListView.ItemTemplate> -->
+
+        <!--Custom View Cells-->
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout  x:DataType="model:Patients">
+                    <Grid ColumnSpacing="2" 
+                      RowSpacing="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="0"
+                           Text="{Binding OPDNumber}"
+                           BackgroundColor="Brown"
+                               TextColor="White"
+                               FontSize="Medium"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Grid.Column="1" 
+                           Text="{Binding FirstName}"
+                           BackgroundColor="Green"
+                               TextColor="White"
+                               FontSize="Medium"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Grid.Column="2" 
+                           Text="{Binding LastName}"
+                           BackgroundColor="Blue"
+                               TextColor="White"
+                               FontSize="Medium"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Grid.Column="3" 
+                           Text="{Binding Village}"
+                           BackgroundColor="Purple"
+                               TextColor="White"
+                               FontSize="Medium"
+                               HorizontalTextAlignment="Center"/>
+
+                    </Grid>
+                    <!--<StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:PatientsListViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                        </TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers-->
+                </StackLayout>
+
+                
+            </DataTemplate>
+       </CollectionView.ItemTemplate>
+
+    </CollectionView>
+</ContentPage>
+    

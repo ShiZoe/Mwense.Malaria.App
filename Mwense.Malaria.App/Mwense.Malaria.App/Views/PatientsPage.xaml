@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodels="clr-namespace:Mwense.Malaria.App.ViewModels" xmlns:sys="clr-namespace:System;assembly=netstandard" x:DataType="viewmodels:PatientsViewModel"
+             mc:Ignorable="d"
+             x:Class="Mwense.Malaria.App.Views.PatientsPage"
+             Title="New Client Registration">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="2">
+            <BoxView HeightRequest="10"/>
+            <Frame BackgroundColor="#BF043055" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <ActivityIndicator x:Name="activity"  
+                       IsRunning="False"  
+                       IsEnabled="False"  
+                       IsVisible="False"  
+                       Color="Blue"  
+                       BackgroundColor="Transparent"/>
+                    
+                    <Entry x:Name="Opdnumber" Text="{Binding OPDNumber, Mode=TwoWay}" Placeholder="OPD Number"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Numeric"  
+                           TextColor="White"/>
+                    <Entry x:Name="Firstname" Text="{Binding FirstName, Mode=TwoWay}" Placeholder="Client First Name"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Text" 
+                           TextColor="White"/>
+                    <Entry x:Name="Lastname" Text="{Binding LastName, Mode=TwoWay}" Placeholder="Client Last Name"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Text"
+                           TextColor="White"/>
+                    <StackLayout>
+                        <Label Text="Date of Birth" TextColor="White"/>
+                        <DatePicker Date ="{Binding DateOfBirth, Mode=TwoWay}" />
+                    </StackLayout>
+                    <!--StackLayout>
+                        <DatePicker VerticalOptions="CenterAndExpand" Date="{Binding DateOfBirth}">
+                            <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+                            <DatePicker.MinimumDate>
+                                <sys:DateTime x:FactoryMethod="Parse">
+                                    <x:Arguments>
+                                        <x:String>Jan 1 1940</x:String>
+                                    </x:Arguments>
+                                </sys:DateTime>
+                            </DatePicker.MinimumDate>
+                            <DatePicker.MaximumDate>
+                                <sys:DateTime x:FactoryMethod="Parse">
+                                    <x:Arguments>
+                                        <x:String>Jan 1 2022</x:String>
+                                    </x:Arguments>
+                                </sys:DateTime>
+                            </DatePicker.MaximumDate>
+                        </DatePicker>
+                    </-->
+
+                    <Entry x:Name="Housenumber" Text="{Binding HouseNumber, Mode=TwoWay}" Placeholder="House Number"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Text"  
+                         TextColor="White"/>
+                    <Entry x:Name="Village" Text="{Binding Village, Mode=TwoWay}" Placeholder="Village"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Text"  
+                           TextColor="White"/>
+                    <Entry x:Name="Phonenumber" Text="{Binding PhoneNumber, Mode=TwoWay}" Placeholder="Phone Number"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Telephone"  
+                           TextColor="White"/>
+                </StackLayout>
+            </Frame>
+            <Button Command="{Binding SubmitCommand}" Text="REGISTER" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#088da5" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

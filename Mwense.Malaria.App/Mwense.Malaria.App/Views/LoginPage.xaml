@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodels="clr-namespace:Mwense.Malaria.App.ViewModels" x:DataType="viewmodels:LoginViewModel"
+             mc:Ignorable="d"
+             x:Class="Mwense.Malaria.App.Views.LoginPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundImage="coatem.png">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+            <BoxView HeightRequest="10"/>
+            <Frame BackgroundColor="#BF043055" HasShadow="True">
+                <Image HorizontalOptions="Center" WidthRequest="300" Source="logo.png" />
+            </Frame>
+            <AbsoluteLayout>
+                <ActivityIndicator x:Name="activity"  
+                       IsRunning="False"  
+                       IsEnabled="False"  
+                       IsVisible="False"  
+                       Color="Blue"  
+                       BackgroundColor="Transparent"/>
+            </AbsoluteLayout>
+            <Frame BackgroundColor="#BF043055" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Entry x:Name="Username" Text="{Binding Username, Mode=TwoWay}" Placeholder="User Name"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Text"  
+                           TextColor="White"/>
+                    <Entry x:Name="Password" Text="{Binding Password, Mode=TwoWay}" Placeholder="Password"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="White"/>
+                </StackLayout>
+            </Frame>
+            <Button Command="{Binding LoginCommand}" Text="Login" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#BF043055" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

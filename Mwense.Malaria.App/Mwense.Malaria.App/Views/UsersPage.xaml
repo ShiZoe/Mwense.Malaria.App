@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodels="clr-namespace:Mwense.Malaria.App.ViewModels" x:DataType="viewmodels:UsersViewModel"
+             mc:Ignorable="d"
+             x:Class="Mwense.Malaria.App.Views.UsersPage"
+             Title="New User Registration">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+            <BoxView HeightRequest="10"/>
+            <!--Image HorizontalOptions="Center" WidthRequest="300" Source="icon.png"/-->
+            <Frame BackgroundColor="#BF043055" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Entry x:Name="Username" Text="{Binding UserName}" Placeholder="User Name"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Text"  
+                           TextColor="White"/>
+                    <Entry x:Name="Password" Text="{Binding PassWord}" Placeholder="Password"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="White"/>
+                    <Entry x:Name="Firstname" Text="{Binding FirstName}" Placeholder="First Name"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Text"
+                           TextColor="White"/>
+                    <Entry x:Name="Lastname" Text="{Binding LastName}" Placeholder="Last Name"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Text"
+                           TextColor="White"/>
+                    <Entry x:Name="Phonenumber" Text="{Binding PhoneNumber}" Placeholder="Cell Phone Number"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Telephone" 
+                           TextColor="White"/>
+                </StackLayout>
+            </Frame>
+            <Button Command="{Binding SubmitCommand}" Text="REGISTER" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#088da5" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

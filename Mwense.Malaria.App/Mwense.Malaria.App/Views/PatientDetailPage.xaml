@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mwense.Malaria.App.Views.PatientDetailPage"
+             xmlns:viewmodels="clr-namespace:Mwense.Malaria.App.ViewModels" 
+             x:DataType="viewmodels:PatientDetailViewModel"
+             Title="Patient Detail Page">
+
+    <StackLayout Spacing="20" Padding="15">
+        <Label Text="Patient OPD Number:" FontSize="Large" FontAttributes="Bold"/>
+        <Label Text="{Binding OPDNumber}" FontSize="Large" BackgroundColor="Beige"/>
+        <Label Text="Patient First Name:" FontSize="Large" FontAttributes="Bold"/>
+        <Label Text="{Binding FirstName}" FontSize="Large" BackgroundColor="Beige"/>
+        <Label Text="Patient Last Name:" FontSize="Large" FontAttributes="Bold"/>
+        <Label Text="{Binding LastName}" FontSize="Large" BackgroundColor="Beige"/>
+        <Label Text="Patient's Village:" FontSize="Large" FontAttributes="Bold"/>
+        <Label Text="{Binding Village}" FontSize="Large" BackgroundColor="Beige"/>
+        <Label Text="Patient's Date of Birth:" FontSize="Large" FontAttributes="Bold"/>
+        <Label Text="{Binding DateOfBirth}" FontSize="Large" BackgroundColor="Beige"/>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mwense.Malaria.App.Views.FollowupDetailPage"
+             xmlns:viewmodels="clr-namespace:Mwense.Malaria.App.ViewModels" 
+             x:DataType="viewmodels:FollowupViewModel"
+             Title="Review">
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Column="0" Grid.Row="0">
+                    <Label Text="Patients Details" TextColor="Blue" FontSize="Large" FontAttributes="Bold"/>
+                    <Label Text="{Binding OPDNumber}" FontSize="Large" BackgroundColor="Beige" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label Text="{Binding FirstName}" FontSize="Large" BackgroundColor="Beige" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label Text="{Binding LastName}" FontSize="Large" BackgroundColor="Beige" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1" Grid.Row="0">
+                    <Label/>
+                    <Label Text="{Binding Village}" FontSize="Large" BackgroundColor="Beige" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label Text="{Binding TestDate}" FontSize="Large" BackgroundColor="Beige" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <StackLayout Grid.Row="1" Grid.Column="0">
+                    <Label Text="Patients Location" TextColor="Blue" FontSize="Large" FontAttributes="Bold"/>
+                    <Entry Text="{Binding Longitude}" IsReadOnly="True" Placeholder="Longitude"  Grid.Row="1" HorizontalOptions="FillAndExpand"/>
+                    <Entry Text="{Binding Latitude}" IsReadOnly="True" Placeholder="Longitude" Grid.Row="1" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1" Grid.Row="1">
+                    <Button Command="{Binding GetCoordinates}" Text="Load Coordinates" TextColor="White" 
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"  
+                    BackgroundColor="#088da5"/>
+                </StackLayout>
+                <StackLayout Grid.Row="2" Grid.ColumnSpan="2">
+                    <Label Text="Follow Up" FontSize="Large" TextColor="Blue" FontAttributes="Bold"/>
+
+                    <StackLayout RadioButtonGroup.SelectedValue="{Binding TreatmentSuccess, Mode=TwoWay}" RadioButtonGroup.GroupName="followup">
+                        <Label Text="Malaria Treatment Completed" TextColor="Blue" FontSize="Medium"/>
+                        <RadioButton Content="Completed" Value="Yes" x:Name="yes"/>
+                        <RadioButton Content="Not Completed" Value="No" x:Name="nop"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Grid.Row="3" Grid.ColumnSpan="2">
+                    <AbsoluteLayout>
+                        <ActivityIndicator x:Name="activity"  
+                       IsRunning="False"  
+                       IsEnabled="False"  
+                       IsVisible="False"  
+                       Color="Blue"  
+                       BackgroundColor="Transparent"/>
+                    </AbsoluteLayout>
+                    <Button Command="{Binding ReviewPatient}" Text="SUBMIT REVIEW" TextColor="White" 
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  
+                    BackgroundColor="#088da5"/>
+                </StackLayout>
+
+            </Grid>
+            <StackLayout>
+
+   
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

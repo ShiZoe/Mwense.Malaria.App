@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodels="clr-namespace:Mwense.Malaria.App.ViewModels" x:DataType="viewmodels:LabResultsViewModel"
+             mc:Ignorable="d"
+             x:Class="Mwense.Malaria.App.Views.LabResultsPage"
+             Title="Patients Lab Results">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+            <BoxView HeightRequest="10"/>
+            <AbsoluteLayout>
+                <ActivityIndicator x:Name="activity"  
+                       IsRunning="False"  
+                       IsEnabled="False"  
+                       IsVisible="False"  
+                       Color="Blue"  
+                       BackgroundColor="Transparent"/>
+            </AbsoluteLayout>
+            <Frame BackgroundColor="#BF043055" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Entry x:Name="Opdnumber" Text="{Binding OPDNumber, Mode=TwoWay}" Placeholder="OPD Number"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Numeric"  
+                           TextColor="White"/>
+                    <StackLayout RadioButtonGroup.SelectedValue="{Binding MalariaResults, Mode=TwoWay}" RadioButtonGroup.GroupName="labresults">
+                        <Label Text="Malaria Test Result" TextColor="White"/>
+                        <RadioButton Content="Positive" TextColor="Red" 
+                                     Value="Postive" x:Name="pos"/>
+                        <RadioButton Content="Negative" TextColor="White"
+                                     Value="Negative" x:Name="neg"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Button Command="{Binding SubmitCommand}" Text="Submit" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#088da5" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
